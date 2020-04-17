@@ -1,0 +1,6 @@
+# Project exclude paths
+/mintmovie02-admin-webui/target/
+/mintmovie03-admin-component/target/
+/mintmovie04-admin-entity/target/
+/mintmovie05-admin-util/target/
+/mintmovie06-admin-reverse/target/

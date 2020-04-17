@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="MyGenerator" targetRuntime="MyBatis3">
+
+        <!--        这个标签可以去掉注释-->
+        <commentGenerator>
+            <!--            去掉注释-->
+            <property name="suppressAllComments" value="true"/>
+            <!--            去掉时间戳-->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!--        数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mint?characterEncoding=utf8"
+                        userId="root"
+                        password="12345">
+        </jdbcConnection>
+
+        <!--        JAVA JDBC数据类型转换-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--
+        javaModelGenerator javaBean配置
+        targetPackage 输出包名 输出路径
+        targetProject 输出项目位置
+        -->
+        <javaModelGenerator targetPackage="love.mint.movie.entity" targetProject="src/main/java">
+            <!--            enableSubPackages 是否开启子包名称 是否在包名后边加上scheme 名称-->
+            <property name="enableSubPackages" value="false"/>
+            <!--            在set 中是否加上 .trim-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--        mapper.xml 配置-->
+        <sqlMapGenerator targetPackage="love.mint.movie.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--        java 接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="love.mint.movie.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--        数据表 要根据数据库中的表来生成-->
+        <!--        <table tableName="m_account" domainObjectName="Account"/>-->
+        <table tableName="m_role" domainObjectName="Role"/>
+
+    </context>
+</generatorConfiguration>
